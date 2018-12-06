@@ -17,6 +17,7 @@ import br.com.adapt.framework.model.Freeblock;
 import br.com.adapt.framework.model.Resource;
 import br.com.adapt.framework.model.User;
 import br.com.adapt.framework.service.SchedulerService;
+import br.com.adapt.framework.service.SharedSchedule;
 
 @Service
 public class SchedulerTaskService extends SchedulerService<Task> {
@@ -25,6 +26,12 @@ public class SchedulerTaskService extends SchedulerService<Task> {
 	private TaskService taskService;
 	
 	
+	public SchedulerTaskService() {
+		super();
+		iShared = new SharedScheduleByDownload();
+	}
+
+
 	@Override
 	public void orderTemporaryTasksByPriority() {
 
